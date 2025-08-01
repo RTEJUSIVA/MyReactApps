@@ -1,0 +1,115 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+body {
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+}
+
+.container-fluid {
+  margin: 0 auto;
+  padding: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.container {
+  width: 500px;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.display-flex {
+  display: flex;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.text-white {
+  color: white;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+.bg-blue {
+  background-color: #009fdf;
+}
+
+input[type="text"] {
+  width: 60%;
+  height: 35px;
+  line-height: 35px;
+  border: 1px solid #ccc;
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  padding-left: 5px;
+  border-radius: 3px;
+  outline: none;
+}
+input[type="text"]:focus {
+  border: 1px solid #009fdf;
+}
+
+webkit::placeholder {
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+}
+
+button {
+  background-color: #e6e7e8;
+  color: #fff;
+  height: 38px;
+  border: 1px solid #e6e7e8;
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  padding: 0 25px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+li {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  font-size: 15px;
+}
+
+input[type="checkbox"] {
+  width: 15px;
+  height: 15px;
+  border: 1px solid #ccc;
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  padding-left: 5px;
+  border-radius: 3px;
+  outline: none;
+}
+
+svg {
+  outline: none;
+  color: #4d4d4d !important;
+  height: 1.5em;
+  width: 1.5em;
+}
+
+ul li svg {
+  outline: none;
+  color: #4d4d4d !important;
+  height: 1em;
+  width: 1em;
+}
