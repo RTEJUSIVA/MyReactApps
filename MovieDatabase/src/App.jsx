@@ -4,11 +4,12 @@ import viteLogo from "/vite.svg";
 import "./App.css";
 import Login from "./Components/login";
 import Register from "./Components/Register";
+import ColorChange from "./Components/ColorChange";
 
 function App() {
   return (
     <>
-      <Register />
+      <ColorChange />
     </>
   );
 }
