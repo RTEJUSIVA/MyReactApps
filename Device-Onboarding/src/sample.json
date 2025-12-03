@@ -1,0 +1,10 @@
+{
+    "name": "chennai-v10-rack1-leaf-001",
+    "platform":"dell",
+    "ip":"192.168.100.55",
+    "username":"admin",
+    "password":"admin",
+    "host":"leaf2",
+    "role":"leaf",
+    "status":false
+  }
