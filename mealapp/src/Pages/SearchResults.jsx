@@ -36,7 +36,7 @@ const SearchResults = () => {
       </div>
       <div className="mx-auto flex items-center justify-center flex-col max-w-7xl">
         {meals.length === 0 ? (
-          <p>No Search Found</p>
+          <p>No Search Results Found</p>
         ) : (
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 mt-10">
             {meals.map((meal) => (
