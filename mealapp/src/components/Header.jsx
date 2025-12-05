@@ -19,7 +19,6 @@ const Header = () => {
           <Link to="/" className="text-xl font-bold">
             MealDB
           </Link>
-          <Link to="/">Home</Link>
           <Link to="/">Categories</Link>
           <Link to="/favorites">Favorites</Link>
         </div>

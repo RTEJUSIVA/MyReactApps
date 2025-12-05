@@ -2,20 +2,11 @@ import React, { useEffect, useState } from "react";
 import LoadingSpinner from "../components/LoadingSpinner";
 import { fetchCategories } from "../api/mealDB";
 import { Link } from "react-router-dom";
-import usePagination from "../Hooks/usePagination";
-import PaginationControls from "../components/PaginationControls";
 
-const Home = () => {
+const Meal = () => {
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(true);
-  const {
-    currentItems,
-    currentPage,
-    totalPages,
-    goToPage,
-    nextPage,
-    prevPage,
-  } = usePagination(categories, 10);
+
   useEffect(() => {
     fetchCategories()
       .then((res) => {
@@ -29,7 +20,6 @@ const Home = () => {
         setLoading(false);
       });
   }, []);
-
   if (loading) return <LoadingSpinner />;
   return (
     <div className="flex items-center justify-center flex-col">
@@ -39,7 +29,7 @@ const Home = () => {
       <div className="w-full text-center">All Listed in One Place</div>
       <div className="w-50 h-1 bg-cyan-800 rounded text-center mt-3"></div>
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 mt-10">
-        {currentItems.map((cat) => {
+        {categories.map((cat) => {
           return (
             <div key={cat.idCategory} className="block object-cover">
               <Link
@@ -59,21 +49,8 @@ const Home = () => {
           );
         })}
       </div>
-      {/* 5. The Pagination Controls */}
-      <PaginationControls
-        currentPage={currentPage}
-        totalPages={totalPages}
-        goToPage={goToPage}
-        nextPage={nextPage}
-        prevPage={prevPage}
-      />
-
-      <p className="text-center text-sm text-gray-600 mt-4">
-        Showing **{currentItems.length}** of **{categories.length}** total
-        items. (Page {currentPage} of {totalPages})
-      </p>
     </div>
   );
 };
 
-export default Home;
+export default Meal;

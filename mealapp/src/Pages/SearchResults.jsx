@@ -3,12 +3,22 @@ import { useSearchParams } from "react-router-dom";
 import LoadingSpinner from "../components/LoadingSpinner";
 import { searchMeals } from "../api/mealDB";
 import MealCard from "../components/MealCard";
+import usePagination from "../Hooks/usePagination";
+import PaginationControls from "../components/PaginationControls";
 
 const SearchResults = () => {
   const [searchParams] = useSearchParams();
   const query = searchParams.get("q") || "";
   const [meals, setMeals] = useState([]);
   const [loading, setLoading] = useState(true);
+  const {
+    currentItems,
+    currentPage,
+    totalPages,
+    goToPage,
+    nextPage,
+    prevPage,
+  } = usePagination(meals, 10);
 
   useEffect(() => {
     if (!query) {
@@ -35,16 +45,28 @@ const SearchResults = () => {
         </h1>
       </div>
       <div className="mx-auto flex items-center justify-center flex-col max-w-7xl">
-        {meals.length === 0 ? (
+        {currentItems.length === 0 ? (
           <p>No Search Results Found</p>
         ) : (
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 mt-10">
-            {meals.map((meal) => (
+            {currentItems.map((meal) => (
               <MealCard key={meal.idMeal} meal={meal} />
             ))}
           </div>
         )}
       </div>
+      <PaginationControls
+        currentPage={currentPage}
+        totalPages={totalPages}
+        goToPage={goToPage}
+        nextPage={nextPage}
+        prevPage={prevPage}
+      />
+
+      <p className="text-center text-sm text-gray-600 mt-4">
+        Showing **{currentItems.length}** of **{currentItems.length}** total
+        items. (Page {currentPage} of {totalPages})
+      </p>
     </div>
   );
 };
