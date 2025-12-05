@@ -1,6 +1,7 @@
 import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
+import { useNavigate } from "react-router-dom";
 
 const validationSchema = Yup.object({
   name: Yup.string()
@@ -40,6 +41,8 @@ const initialValues = savedData || {
 };
 
 const Registration = () => {
+  let navigate = useNavigate();
+
   const handleSubmit = async (values, { setSubmitting, resetForm }) => {
     try {
       console.log("Form submitted with values:", values);
@@ -47,13 +50,11 @@ const Registration = () => {
       let existingUsers = JSON.parse(localStorage.getItem("users")) || [];
       existingUsers.push(values);
       localStorage.setItem("users", JSON.stringify(existingUsers));
-
-      // Dispatch custom event for UserList
-      window.dispatchEvent(new Event("usersUpdated"));
       // simulate API
       await new Promise((r) => setTimeout(r, 1000));
       alert("Form submitted successfully!");
       resetForm();
+      navigate("/userslist");
     } finally {
       setSubmitting(false);
     }

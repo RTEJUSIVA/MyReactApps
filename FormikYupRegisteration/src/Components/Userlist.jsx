@@ -23,14 +23,6 @@ const Userlist = () => {
     setEditData({ ...editData, [e.target.name]: e.target.value });
   };
 
-  const deleteUser = (index) => {
-    const savedUsers = JSON.parse(localStorage.getItem("users")) || [];
-    savedUsers.splice(index, 1);
-    localStorage.setItem("users", JSON.stringify(savedUsers));
-    setUsers(savedUsers);
-    window.dispatchEvent(new Event("usersUpdated")); // sync
-  };
-
   // Save edited user
   const saveEdit = (index) => {
     const savedUsers = JSON.parse(localStorage.getItem("users")) || [];
@@ -40,6 +32,14 @@ const Userlist = () => {
     setEditIndex(null);
     setEditData({});
     window.dispatchEvent(new Event("usersUpdated"));
+  };
+
+  const deleteUser = (index) => {
+    const savedUsers = JSON.parse(localStorage.getItem("users")) || [];
+    savedUsers.splice(index, 1);
+    localStorage.setItem("users", JSON.stringify(savedUsers));
+    setUsers(savedUsers);
+    window.dispatchEvent(new Event("usersUpdated")); // sync
   };
 
   // Cancel edit
